@@ -3,7 +3,7 @@ name: Obfuscate and Commit
 on:
     push:
         paths:
-            - 'works-Dean.js'
+            - 'dingyue.js'
     workflow_dispatch:
 
 jobs:
@@ -27,7 +27,7 @@ jobs:
 
       - name: Obfuscate code
         run: |
-          javascript-obfuscator works-Dean.js --output _worker-Dean.js \
+          javascript-obfuscator dingyue.js --output _dingyue-Dean.js \
           --compact true \
           --control-flow-flattening true \
           --control-flow-flattening-threshold 1 \
@@ -45,7 +45,7 @@ jobs:
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          git add _worker-Dean.js
+          git add _dingyue-Dean.js
           git commit -m "Obfuscate _worker.js" || echo "No changes to commit"
 
       - name: Push changes
